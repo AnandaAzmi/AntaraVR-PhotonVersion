@@ -15,7 +15,12 @@ public class CustomMatchmakingRoomController : MonoBehaviourPunCallbacks
     private GameObject roomPanel;
 
     [SerializeField]
-    private GameObject startButton;
+    public GameObject startButton;
+
+    [SerializeField]
+    private GameObject teacherButton;  // Tombol Pilih Teacher
+    [SerializeField]
+    private GameObject studentButton;  // Tombol Pilih Student
 
     [SerializeField]
     private Transform playersContainer;
@@ -24,6 +29,7 @@ public class CustomMatchmakingRoomController : MonoBehaviourPunCallbacks
 
     [SerializeField]
     private TextMeshProUGUI roomNameDisplay;
+
 
     void ClearPlayerListings()
     {
@@ -51,10 +57,12 @@ public class CustomMatchmakingRoomController : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             startButton.SetActive(true);
+            EnableRoleSelectionButtons(true);  // Aktifkan tombol role selection
         }
         else
         {
             startButton.SetActive(false);
+            EnableRoleSelectionButtons(false);  // Nonaktifkan tombol role selection
         }
         ClearPlayerListings();
         ListPlayers();
@@ -75,11 +83,45 @@ public class CustomMatchmakingRoomController : MonoBehaviourPunCallbacks
         }
 
     }
-
+    // Fungsi untuk mengaktifkan dan menonaktifkan tombol pilihan role
+    public void EnableRoleSelectionButtons(bool isEnabled)
+    {
+        teacherButton.SetActive(isEnabled);  // Menampilkan tombol Teacher
+        studentButton.SetActive(isEnabled);  // Menampilkan tombol Student
+    }
     public void StartGame()
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            // Ambil role MasterClient
+            string masterRole = PhotonNetwork.LocalPlayer.CustomProperties["role"]?.ToString();
+
+            if (string.IsNullOrEmpty(masterRole))
+            {
+                Debug.LogError("MasterClient belum memilih role.");
+                return;
+            }
+
+            // Tentukan role lawan (otomatis untuk client lain)
+            string otherRole = masterRole == "Teacher" ? "Student" : "Teacher";
+
+            foreach (Player player in PhotonNetwork.PlayerList)
+            {
+                ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable();
+
+                if (player == PhotonNetwork.LocalPlayer) // MasterClient
+                {
+                    playerProps["role"] = masterRole;
+                }
+                else // Player lainnya
+                {
+                    playerProps["role"] = otherRole;
+                }
+
+                player.SetCustomProperties(playerProps);
+            }
+
+            // Tutup room dan mulai game
             PhotonNetwork.CurrentRoom.IsOpen = false;
             PhotonNetwork.LoadLevel(multiPlayerSceneIndex);
         }

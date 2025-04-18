@@ -12,8 +12,23 @@ public class GameSetupController : MonoBehaviourPunCallbacks
 
     private void CreatePlayer()
     {
-        Debug.Log("Creating Player");
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
+        //Debug.Log("Creating Player");
+        //PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
+
+        if (PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue("role", out object roleObj))
+        {
+            string role = roleObj.ToString();
+            string prefabName = role;
+
+            Debug.Log($"Spawning player dengan role: {role}");
+
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", prefabName), Vector3.zero, Quaternion.identity);
+        }
+        else
+        {
+            Debug.LogError("Role belum diset di CustomProperties!");
+        }
+        
     }
 
     // Callback saat pemain baru masuk ke room

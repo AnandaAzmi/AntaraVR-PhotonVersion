@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Custom Matchmaking Scene/CustomMatchmaking.unity
-    guid: 91b505b69f8e5ee46a29d8bec5e74ee1
+    path: Assets/Scenes/Custom Matchmaking Scene/CustomMatchmaking-Coba2.unity
+    guid: 41c6ae1b6c273b446bc09be1834fff20
   - enabled: 1
     path: Assets/Scenes/Multiplyer-QuickStart.unity
     guid: 527f2df0d49f0e8498b67fd94b934304
