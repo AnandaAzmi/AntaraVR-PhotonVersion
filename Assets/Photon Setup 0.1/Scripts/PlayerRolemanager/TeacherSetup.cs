@@ -1,18 +1,23 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeacherSetup : MonoBehaviour
+public class TeacherSetup : MonoBehaviourPun
 {
-    // Start is called before the first frame update
+    private PhotonView myPhotonView;
+    [SerializeField] private GameObject teacherUI;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        myPhotonView = GetComponentInParent<PhotonView>();
+        if (myPhotonView != null && myPhotonView.IsMine)
+        {
+            teacherUI.SetActive(true);
+        }
+        else
+        {
+            teacherUI.SetActive(false);
+        }
     }
 }
