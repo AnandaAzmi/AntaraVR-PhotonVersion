@@ -103,7 +103,7 @@ public class CustomMatchmakingRoomController : MonoBehaviourPunCallbacks
             }
 
             // Tentukan role lawan (otomatis untuk client lain)
-            string otherRole = masterRole == "Teacher" ? "Student" : "Teacher";
+            string otherRole = masterRole == "Teacher" ? "PhotonPlayer" : "Teacher";
 
             foreach (Player player in PhotonNetwork.PlayerList)
             {
