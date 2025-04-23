@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2152503133072923673}
   - component: {fileID: 8322441244960607464}
   - component: {fileID: 3568375749566001707}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,8 +146,10 @@ GameObject:
   - component: {fileID: 133920857215539277}
   - component: {fileID: 3923517346956004782}
   - component: {fileID: 6200528174752776231}
+  - component: {fileID: 7112751254955697597}
   - component: {fileID: 2008928361908827937}
-  m_Layer: 5
+  - component: {fileID: 5050051870310728437}
+  m_Layer: 3
   m_Name: RoomListing 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,6 +271,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7112751254955697597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2957386668382708120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2008928361908827937}
+          m_TargetAssemblyTypeName: RoomButton, Assembly-CSharp
+          m_MethodName: JoinRoomOnClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &2008928361908827937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +314,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 3568375749566001707}
   sizeText: {fileID: 7198179772475906688}
+--- !u!114 &5050051870310728437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2957386668382708120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab79b59af7a51e3488872ff9dfe4602c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waktuLiahat: 2
+  buttonPlay: {fileID: 2957386668382708120}
 --- !u!1 &8995402558811410909
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +339,7 @@ GameObject:
   - component: {fileID: 491047817269614968}
   - component: {fileID: 1169772222015615104}
   - component: {fileID: 7198179772475906688}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Size
   m_TagString: Untagged
   m_Icon: {fileID: 0}
