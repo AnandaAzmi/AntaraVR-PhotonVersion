@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
@@ -47,8 +45,9 @@ public class SynkVRHead : MonoBehaviourPun, IPunObservable
         }
         else
         {
+            
             // Di sisi lain, gunakan rotasi dari jaringan
-            transform.rotation = Quaternion.Slerp(transform.rotation, networkRotation, Time.deltaTime * 10f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, networkRotation, Time.deltaTime * 10f);
         }
     }
 
@@ -56,6 +55,7 @@ public class SynkVRHead : MonoBehaviourPun, IPunObservable
     {
         if (stream.IsWriting)
         {
+       
             // Kirim rotasi (dari device student / VR aktif)
             stream.SendNext(transform.rotation);
         }
@@ -65,4 +65,5 @@ public class SynkVRHead : MonoBehaviourPun, IPunObservable
             networkRotation = (Quaternion)stream.ReceiveNext();
         }
     }
+    
 }
