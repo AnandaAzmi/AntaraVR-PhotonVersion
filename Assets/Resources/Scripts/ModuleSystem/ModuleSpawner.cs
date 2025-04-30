@@ -5,25 +5,10 @@ public class ModuleSpawner : MonoBehaviourPun
 {
     [SerializeField] private ModuleDatabase moduleDatabase;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject waitingArea;
-
-    private GameObject currentSpawnedModule;
-    
+   
     private void Awake()
     {
        
-        if (waitingArea == null )
-        {
-            GameObject waitingObj = GameObject.FindGameObjectWithTag("WaitingArea");
-            if (waitingObj != null)
-            {
-                waitingArea = waitingObj;
-            }
-            else
-            {
-                Debug.LogError("WaitingArea with tag 'WaitingArea' not found!");
-            }
-        }
         if (spawnPoint == null)
         {
             GameObject spawnObj = GameObject.FindWithTag("ModuleInstance");
@@ -81,13 +66,9 @@ public class ModuleSpawner : MonoBehaviourPun
     [PunRPC]
     void RPC_EndModule()
     {
-        if (currentSpawnedModule != null)
+        if (ModuleInstanceHandler.Instance != null)
         {
-            Destroy(currentSpawnedModule);
-            currentSpawnedModule = null;
+            ModuleInstanceHandler.Instance.EndModule();
         }
-
-        if (waitingArea != null)
-            waitingArea.SetActive(true); // Enable Area Waiting lagi
     }
 }

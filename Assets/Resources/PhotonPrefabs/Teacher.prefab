@@ -2372,7 +2372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moduleDatabase: {fileID: 11400000, guid: 018230a882923474aa79c3421e83150d, type: 2}
   spawnPoint: {fileID: 0}
-  waitingArea: {fileID: 0}
 --- !u!1 &7163977179268291539
 GameObject:
   m_ObjectHideFlags: 0
