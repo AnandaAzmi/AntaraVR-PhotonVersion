@@ -1241,8 +1241,8 @@ MonoBehaviour:
   - {fileID: 192061787172841692, guid: 30cde605a2ecc0943a1c1c5e3a600ca0, type: 3}
   - {fileID: 650571515841925163, guid: da7d0458cce63e5468b100fa78f5b557, type: 3}
   spawnCenter: {fileID: 1440594792}
-  spawnRadius: 0
-  spawnInterval: 1
+  spawnRadius: 5
+  spawnInterval: 3
 --- !u!1 &1110368100
 GameObject:
   m_ObjectHideFlags: 0
