@@ -7,6 +7,9 @@ TagManager:
   - WaitingArea
   - ModuleInstance
   - ActiveModule
+  - AudioSource
+  - SpeakerNameText
+  - DialogueText
   layers:
   - Default
   - TransparentFX

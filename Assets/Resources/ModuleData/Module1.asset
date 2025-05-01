@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moduleId: 1
   moduleName: StasiunArea
-  modulePrefab: {fileID: 8584378865790566587, guid: b6afad7ce26d8b64f8e0fe0802f3730a,
+  modulePrefab: {fileID: 5676453879828406506, guid: 1ac16462304470e4ea65dcc35ce64f19,
     type: 3}

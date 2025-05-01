@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd916cb4871318d498a5e7edbd5279b8, type: 3}
+  m_Name: Module1_Narator1
+  m_EditorClassIdentifier: 
+  speakerName: Narator
+  dialogueText: "Hari ini kamu pergi ke kampus menggunakan angkutan umum. Kamu sudah
+    naik dan duduk dengan nyaman.\nTapi ingat, kita harus peka terhadap orang-orang
+    di sekitar kita, terutama yang lebih tua atau membutuhkan bantuan.\nPerhatikan
+    baik-baik sekelilingmu. Apakah ada yang berdiri dan terlihat kelelahan?\r"
+  voiceClip: {fileID: 8300000, guid: 3b0d5d35b1ba5b84d92fc993865c7f4f, type: 3}
