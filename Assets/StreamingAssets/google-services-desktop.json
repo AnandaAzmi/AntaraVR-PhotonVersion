@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "552249902818",
+    "project_id": "antara-vr",
+    "storage_bucket": "antara-vr.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552249902818:android:1ebf3231f8b9e8d1e5c0bb",
+        "android_client_info": {
+          "package_name": "com.diariteam.antaravr"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEeWxG0KmRcTHoiyqL8yn__DBZ2kMbK9M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
