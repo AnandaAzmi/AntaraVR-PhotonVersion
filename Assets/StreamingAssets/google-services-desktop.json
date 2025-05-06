@@ -1,9 +1,10 @@
 {
-  "project_info": {
-    "project_number": "552249902818",
-    "project_id": "antara-vr",
-    "storage_bucket": "antara-vr.firebasestorage.app"
-  },
+    "project_info": {
+        "project_number": "552249902818",
+        "firebase_url": "https://antara-vr-default-rtdb.asia-southeast1.firebasedatabase.app",
+        "project_id": "antara-vr",
+        "storage_bucket": "antara-vr.firebasestorage.app"
+    },
   "client": [
     {
       "client_info": {

@@ -35,8 +35,7 @@ public class FirebaseManager : MonoBehaviour
     [Header("UserData")]
     public TMP_InputField usernameField;
     public TMP_InputField scoreField;
-    //public TMP_InputField killsField;
-    //public TMP_InputField deathsField;
+    
     public GameObject scoreElement;
     public Transform scoreboardContent;
 
@@ -105,8 +104,7 @@ public class FirebaseManager : MonoBehaviour
         StartCoroutine(UpdateUsernameDatabase(usernameField.text));
 
         StartCoroutine(UpdateScore(int.Parse(scoreField.text)));
-        //StartCoroutine(UpdateKills(int.Parse(killsField.text)));
-        //StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
+        
     }
     //Function for the scoreboard button
     public void ScoreboardButton()
@@ -303,39 +301,7 @@ public class FirebaseManager : MonoBehaviour
         }
     }
 
-    //private IEnumerator UpdateKills(int _kills)
-    //{
-    //    //Set the currently logged in user kills
-    //    Task DBTask = DBreference.Child("users").Child(User.UserId).Child("kills").SetValueAsync(_kills);
-
-    //    yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-    //    if (DBTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-    //    }
-    //    else
-    //    {
-    //        //Kills are now updated
-    //    }
-    //}
-
-    //private IEnumerator UpdateDeaths(int _deaths)
-    //{
-    //    //Set the currently logged in user deaths
-    //    Task DBTask = DBreference.Child("users").Child(User.UserId).Child("deaths").SetValueAsync(_deaths);
-
-    //    yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-    //    if (DBTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-    //    }
-    //    else
-    //    {
-    //        //Deaths are now updated
-    //    }
-    //}
+    
 
     private IEnumerator LoadUserData()
     {
@@ -352,8 +318,7 @@ public class FirebaseManager : MonoBehaviour
         {
             //No data exists yet
             scoreField.text = "0";
-            //killsField.text = "0";
-            //deathsField.text = "0";
+            
         }
         else
         {
@@ -361,8 +326,7 @@ public class FirebaseManager : MonoBehaviour
             DataSnapshot snapshot = DBTask.Result;
 
             scoreField.text = snapshot.Child("score").Value.ToString();
-            //killsField.text = snapshot.Child("kills").Value.ToString();
-            //deathsField.text = snapshot.Child("deaths").Value.ToString();
+            
         }
     }
 
@@ -392,8 +356,6 @@ public class FirebaseManager : MonoBehaviour
             foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
             {
                 string username = childSnapshot.Child("username").Value.ToString();
-                //int kills = int.Parse(childSnapshot.Child("kills").Value.ToString());
-                //int deaths = int.Parse(childSnapshot.Child("deaths").Value.ToString());
                 int score = int.Parse(childSnapshot.Child("score").Value.ToString());
 
                 //Instantiate new scoreboard elements

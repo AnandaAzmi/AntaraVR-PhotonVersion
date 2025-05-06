@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usernameText: {fileID: 6499804305716547681}
-  xpText: {fileID: 8537891238318436258}
+  scoreText: {fileID: 8537891238318436258}
 --- !u!1 &7446844401980301302
 GameObject:
   m_ObjectHideFlags: 0
